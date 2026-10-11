@@ -5,5 +5,5 @@ import { slackChannel } from "eve/channels/slack";
 // up yourself, create a connector with `vercel connect create slack --triggers`
 // and put its UID in SLACK_CONNECTOR (or replace the fallback below).
 export default slackChannel({
-  credentials: connectSlackCredentials(process.env.SLACK_CONNECTOR ?? "slack/my-agent"),
+  credentials: connectSlackCredentials(process.env.SLACK_CONNECTOR ?? "slack/scit-eve-slack-agent"),
 });
