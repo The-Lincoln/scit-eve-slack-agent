@@ -102,7 +102,7 @@ if __name__ == "__main__":
     a = ap.parse_args()
     payload = {"preblock": lambda: build_preblock(a.block_id), "lead": lambda: build_lead(a.lead_id), "health": build_health}[a.mode]()
     # Eve trigger envelope: Slack events arrive at /eve/v1/slack, but for localhost test we wrap Block Kit as eve input
-    eve_envelope = {"triggerPath": "/eve/v1/slack", "connector": os.environ.get("SLACK_CONNECTOR","slack/my-agent"), "event": {"type": "ceo_alert", "payload": payload}}
+    eve_envelope = {"triggerPath": "/eve/v1/slack", "connector": os.environ.get("SLACK_CONNECTOR","slack/scit-eve-slack-agent"), "event": {"type": "ceo_alert", "payload": payload}}
     print(json.dumps(payload, indent=2)[:4000])
     if a.out:
         pathlib.Path(a.out).write_text(json.dumps({"payload": payload, "eve_envelope": eve_envelope}, indent=2), encoding="utf-8")
