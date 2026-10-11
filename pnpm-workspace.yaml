@@ -9,4 +9,6 @@ minimumReleaseAgeExclude:
   - workflow
 
 allowBuilds:
+  '@mongodb-js/zstd': true
   esbuild: true
+  node-liblzma: true
